@@ -1,0 +1,183 @@
+---
+title: Remainders
+slug: remainders
+date: 2020-08-06
+featureImage: maths.jpg
+excerpt: Remainders, there is two kinds of them
+---
+
+# Intro
+
+Here we go back to the definition of euclidean division. Dividing a by b, fundamentally means looking at how many times b can fit into a.
+
+for example, doing 14÷3, we want to know how many chunks of 3 go into 14. How many stacks of 3 apples can you make with 14 apples?
+
+Finding the answer comes down to this: keep adding 3 until you you added too much. so, let’s see:
+
+—3 goes into 14 once…
+—3 + 3 = 6 < 14, twice…
+—3 + 3 + 3 = 9 < 14, 3 times…
+—3 + 3 + 3 + 3 = 12 < 14, 4 times…
+—3 + 3 + 3 + 3 + 3 = 15 > 14, just 4 times
+
+![Alt Text](https://dev-to-uploads.s3.amazonaws.com/i/ice0mj32rhqr5qhjnsg0.png)
+
+You can fit 4 chunks of 3 into 14, but not 5. You could still add 2 more to make 14, but you cannot add one complete chunk of 3.
+
+This can be written as:
+
+14 = 3 × 4 + 2, or _dividend = divisor × quotient + remainder_
+
+# What happens with negative numbers?
+
+There is no really obvious way to do the same thing with negative numbers. What does it even mean to divide by a negative number? Or divide a negative number?
+
+The usual way to proceed in maths is by extrapolation. We try to apply the same thing in the new domain as we were doing in the known domain, in a way that makes sense and that doesn’t blow up in your face.
+
+## simpler case
+
+First let’s try −14 ÷ (−3)
+
+how many times does −3 go into −14? You can’t really visualize stacks of −3 things. Weird, But −3 and −14 are of the same kind. So in the same way we did previously, you can keep adding −3 until you reach −14.
+
+(−3) + (−3) + (−3) + (−3) = −12 > −14
+(−3) + (−3) + (−3) + (−3) + (−3) = −15 < −14
+
+so once gain, it’s 4 times.
+
+Let’s write the thing again:
+−14 = −3 × 4 − 2
+
+## less simpler case
+
+what if we want to do −14 ÷ 3 ?
+
+How many times 3 goes into -14? That seems weird, −14 and 3 are not really made of the same material, so how would you make stacks of 3 out of -14? You could keep adding stacks of 3, but you’d going in the wrong direction indefinitely.
+
+The solution is the keep _subtracting_ 3’s until you get to −14. You could also think of this as cutting 14 into 3 equal parts, and see what remains.
+
+− 3 − 3 − 3 − 3 = −12 > −14
+− 3 − 3 − 3 − 3 − 3 = −15 < −14
+
+Instead of having 4 stacks as previously, this time we have −4 stacks of 3’s, plus a remainder of −2.
+
+−14 = 3 × −4 − 2
+
+## Last case
+
+14 ÷ (−3).
+
+We have encountered the species of stacks of −3 things before, but how does it fit into a positive number of things?
+
+Tweaking up a little bit what we did previously, we can keep subtracting again, but this time stacks of −3
+
+−(−3) −(−3) −(−3) −(−3) = 12 < 14
+−(−3) −(−3) −(−3) −(−3) −(−3) = 15 > 14
+
+so, 14 is made of… −4 stacks of −3.
+
+14 = −3 × −4 + 2
+
+# Two kinds of remainders
+
+Okay what we have seen so far is kind of the intuitive way to go about it. We have taken what we already know how to do in the positive world 14÷3 and tried to imitate and do something similar in the negative world.
+
+Now let’s consider this:
+
+1 = 3 × 0 + 1
+2 = 3 × 0 + 2
+3 = 3 × 1
+4 = 3 × 1 + 1
+5 = 3 × 1 + 2
+6 = 3 × 2
+7 = 3 × 2 + 1
+8 = 3 × 2 + 2
+9 = 3 × 3
+
+Numbers that are 3 units apart seem to have the same remainders. For example, 13, 16, 19, 22, all have the same remainder modulo 3. There are all 1 to the right of a multiple of 3, and can be written as 3 × n + 1, with a chosen integer n.
+
+Now let’s continue to same thing towards the negative side, using the same process as earlier with negative numbers division.
+
+−5 = 3 × −1 − 2
+−4 = 3 × −1 − 1
+−3 = 3 × −1
+−2 = 3 × 0 − 2
+−1 = 3 × 0 − 1
+0 = 3 × 0
+1 = 3 × 0 + 1
+2 = 3 × 0 + 2
+3 = 3 × 1
+4 = 3 × 1 + 1
+5 = 3 × 1 + 2
+
+This seems to be breaking the pattern. 2 and −1 do not have the same remainder, neither do 1 and −2.
+
+There actually is another way to do the same division, which is going to behave nicely and keep the same remainder for all numbers that are 3 units from each other.
+
+Here it goes:
+
+−5 = 3 × −2 + 1
+−4 = 3 × −2 + 2
+−3 = 3 × −1
+−2 = 3 × −1 + 1
+−1 = 3 × −1 + 2
+0 = 3 × 0
+1 = 3 × 0 + 1
+2 = 3 × 0 + 2
+3 = 3 × 1
+4 = 3 × 1 + 1
+5 = 3 × 1 + 2
+
+This time, in the negative side, it actually overshoots the number. It says that −5 is 3 × −2, but we have subtracted 1 too much, so we need to add 1 back.
+
+This division is kind of more neat, everything is grouped evenly by 3.
+
+Different languages have implemented different version of it, but I believe most languages have implemented the first version we have described.
+
+JavaScript:
+
+```javascript
+;[-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5].map(n => n % 3)
+// [-2, -1, -0, -2, -1, 0, 1, 2, 0, 1, 2]
+```
+
+C++:
+
+```cpp
+for (int i = -5; i <= 5; i++) {
+      cout << i % 3 << ", ";
+    }
+// -2, -1, 0, -2, -1, 0, 1, 2, 0, 1, 2,
+```
+
+In Haskell, both version are available to you.
+
+The first one use the functions `quot` and `rem`:
+`5 = quot × 3 + rem`
+
+the second one `div` and `mod`:
+
+`5 = div × 3 + mod`
+
+```haskell
+-- dividing by 3
+map (`rem` 3) [-5 .. 5]
+--[-2,-1,0,-2,-1,0,1,2,0,1,2]
+map (`mod` 3) [-5 .. 5]
+--[1,2,0,1,2,0,1,2,0,1,2]
+
+-- dividing by -3
+map (`rem` (-3)) [-5 .. 5]
+[-2,-1,0,-2,-1,0,1,2,0,1,2]
+map (`mod` (-3)) [-5 .. 5]
+--[-2,-1,0,-2,-1,0,-2,-1,0,-2,-1]
+```
+
+You’ve also two functions, `quotRem` and `divMod`, that will return the couple of Int (quotient, remainder)
+
+```haskell
+quotRem 5 3
+--(1,2)
+divMod 5 (-3)
+-- (-2,-1)
+```
