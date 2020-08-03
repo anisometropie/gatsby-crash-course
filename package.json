@@ -20,6 +20,7 @@
     "gatsby": "^2.23.12",
     "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-mdx": "^1.2.30",
+    "gatsby-plugin-module-resolver": "^1.0.3",
     "gatsby-plugin-sharp": "^2.6.24",
     "gatsby-plugin-styled-components": "^3.3.10",
     "gatsby-remark-images": "^3.3.23",
