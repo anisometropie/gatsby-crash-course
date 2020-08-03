@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const FooterWrapper = styled.footer`
   grid-column: 2 / span 12;
-  min-height; 11.25rem;
+  min-height: 11.25rem;
   padding: 3rem 0;
   display: flex;
   justify-content: center;
@@ -13,7 +13,7 @@ export const FooterWrapper = styled.footer`
   }
 `
 
-export const FootSocialWrapper = styled.div`
+export const FooterSocialWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -24,6 +24,7 @@ export const FootSocialWrapper = styled.div`
     flex: 0 0 100%;
   }
 `
+
 export const FooterSocialIcons = styled.div`
   flex: 0 0 100%;
   margin-bottom: 2rem;
@@ -31,11 +32,12 @@ export const FooterSocialIcons = styled.div`
   img {
     height: 22px;
     padding: 0 1rem;
-    transition: filter 0.3s ease;
+    transition: opacity 0.3s ease;
+    opacity: 0.5;
   }
 
-  & img:hover,
+  img:hover,
   img:focus {
-    filter: brightness(50%);
+    opacity: 1;
   }
 `

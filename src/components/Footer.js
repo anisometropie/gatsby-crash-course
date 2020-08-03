@@ -2,7 +2,7 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import {
   FooterWrapper,
-  FootSocialWrapper,
+  FooterSocialWrapper,
   FooterSocialIcons,
   P
 } from 'elements'
@@ -27,7 +27,7 @@ export const Footer = () => {
 
   return (
     <FooterWrapper>
-      <FootSocialWrapper>
+      <FooterSocialWrapper>
         <FooterSocialIcons>
           <a
             href="https://facebook.com"
@@ -61,7 +61,7 @@ export const Footer = () => {
         <P size="xSmall" color="dark3">
           © 2020 Company. All right reserved.
         </P>
-      </FootSocialWrapper>
+      </FooterSocialWrapper>
     </FooterWrapper>
   )
 }
