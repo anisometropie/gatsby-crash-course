@@ -159,7 +159,7 @@ the second one `div` and `mod`:
 
 `5 = div × 3 + mod`
 
-```haskell
+```hs
 -- dividing by 3
 map (`rem` 3) [-5 .. 5]
 --[-2,-1,0,-2,-1,0,1,2,0,1,2]
@@ -175,7 +175,7 @@ map (`mod` (-3)) [-5 .. 5]
 
 You’ve also two functions, `quotRem` and `divMod`, that will return the couple of Int (quotient, remainder)
 
-```haskell
+```hs
 quotRem 5 3
 --(1,2)
 divMod 5 (-3)

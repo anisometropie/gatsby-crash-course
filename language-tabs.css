@@ -45,7 +45,7 @@
   color: white;
 }
 
-.gatsby-highlight pre[class~='language-haskell']::before {
+.gatsby-highlight pre[class~='language-hs']::before {
   content: 'haskell';
   background: #6144b3;
   color: white;
